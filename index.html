@@ -1,0 +1,676 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Centro Auria — Bienestar Emocional Integral</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,500&family=Tangerine:wght@700&family=Quicksand:wght@500;600;700&family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --cream:#F5F0E6;
+    --cream-dark:#EAE1CD;
+    --gold:#C6A661;
+    --gold-dark:#A5813C;
+    --sage:#8B9574;
+    --sage-dark:#5F6B4E;
+    --charcoal:#3A3A38;
+    --white:#FFFFFF;
+    --shadow: 0 10px 30px rgba(90,80,50,0.10);
+  }
+  *{box-sizing:border-box;margin:0;padding:0;}
+  html{scroll-behavior:smooth;}
+  body{
+    font-family:'Montserrat',sans-serif;
+    color:var(--charcoal);
+    background:var(--cream);
+    line-height:1.6;
+  }
+  h1,h2,h3,h4{font-family:'Cormorant Garamond',serif;font-weight:600;}
+  a{text-decoration:none;color:inherit;}
+  .container{max-width:1140px;margin:0 auto;padding:0 24px;}
+  .section-eyebrow{
+    text-transform:uppercase;letter-spacing:3px;font-size:12px;font-weight:600;
+    color:var(--sage-dark);margin-bottom:8px;
+  }
+  .section-title{font-size:34px;color:var(--charcoal);}
+  .section-title em{font-family:'Cormorant Garamond',serif;font-style:italic;color:var(--gold-dark);}
+  .section-underline{width:64px;height:2px;background:linear-gradient(90deg,var(--gold),var(--sage));margin:16px auto 0;}
+  section{padding:88px 0;}
+
+  /* NAVBAR */
+  header{
+    position:sticky;top:0;z-index:50;background:rgba(245,240,230,0.92);backdrop-filter:blur(6px);
+    border-bottom:1px solid var(--cream-dark);
+  }
+  .nav-wrap{display:flex;align-items:center;justify-content:space-between;padding:14px 24px;max-width:1140px;margin:0 auto;}
+  .logo{display:flex;align-items:center;gap:10px;}
+  .logo-img{height:52px;width:auto;display:block;}
+  .footer-logo-img{height:64px;width:auto;display:block;margin-bottom:14px;border-radius:12px;}
+  nav ul{display:flex;gap:32px;list-style:none;}
+  nav a{font-size:14px;font-weight:500;color:var(--charcoal);transition:color .2s;}
+  nav a:hover{color:var(--gold-dark);}
+  .btn-nav{
+    background:var(--sage-dark);color:var(--white);padding:10px 22px;border-radius:30px;font-size:13px;font-weight:600;
+    letter-spacing:.5px;
+  }
+  .menu-toggle{display:none;background:none;border:none;font-size:26px;cursor:pointer;color:var(--sage-dark);}
+  @media (max-width:860px){
+    nav{display:none;position:absolute;top:100%;left:0;right:0;background:var(--cream);border-bottom:1px solid var(--cream-dark);}
+    nav.open{display:block;}
+    nav ul{flex-direction:column;padding:20px 24px;gap:16px;}
+    .menu-toggle{display:block;}
+  }
+
+  /* HERO */
+  .hero{
+    background:linear-gradient(135deg,var(--cream) 0%,var(--cream-dark) 60%,#DCE0CE 100%);
+    padding:100px 0 90px;
+  }
+  .hero-grid{display:grid;grid-template-columns:1.1fr 0.9fr;gap:48px;align-items:center;}
+  .hero-eyebrow{color:var(--gold-dark);letter-spacing:3px;text-transform:uppercase;font-size:13px;font-weight:600;margin-bottom:18px;}
+  .hero h1{font-size:52px;line-height:1.15;color:var(--charcoal);margin-bottom:20px;}
+  .hero h1 span{color:var(--gold-dark);font-style:italic;}
+  .hero p{font-size:17px;color:#5c5c58;max-width:480px;margin-bottom:32px;}
+  .btn-primary{
+    display:inline-flex;align-items:center;gap:8px;background:linear-gradient(135deg,var(--gold),var(--gold-dark));
+    color:var(--white);padding:16px 32px;border-radius:40px;font-weight:600;font-size:15px;box-shadow:var(--shadow);
+    border:none;cursor:pointer;
+  }
+  .btn-secondary{
+    display:inline-flex;align-items:center;gap:8px;background:transparent;border:2px solid var(--sage-dark);
+    color:var(--sage-dark);padding:14px 30px;border-radius:40px;font-weight:600;font-size:15px;cursor:pointer;
+  }
+  .hero-actions{display:flex;gap:16px;flex-wrap:wrap;}
+  .hero-badge-card{
+    background:var(--white);border-radius:28px;padding:30px;box-shadow:var(--shadow);text-align:center;
+    border:1px solid var(--cream-dark);
+  }
+  .hero-badge-card .ring{
+    width:120px;height:120px;border-radius:50%;margin:0 auto 18px;border:3px solid var(--gold);
+    display:flex;align-items:center;justify-content:center;background:var(--cream);overflow:hidden;
+  }
+  .hero-badge-card .ring img{width:100%;height:100%;object-fit:cover;object-position:top center;}
+  .hero-badge-card h3{font-size:22px;}
+  .hero-badge-card p.role{color:var(--sage-dark);font-weight:600;font-size:13px;letter-spacing:1px;text-transform:uppercase;margin:6px 0 14px;}
+
+  /* PROFILE */
+  .profile-grid{display:grid;grid-template-columns:0.85fr 1.15fr;gap:56px;align-items:center;}
+  .profile-photo{
+    border-radius:32px;height:460px;overflow:hidden;box-shadow:var(--shadow);border:6px solid var(--white);
+  }
+  .profile-photo img{width:100%;height:100%;object-fit:cover;object-position:top center;display:block;}
+  .quote{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:22px;color:var(--sage-dark);margin:18px 0 26px;}
+  .badge-row{display:flex;flex-direction:column;gap:14px;margin-top:10px;}
+  .badge{
+    display:flex;align-items:center;gap:16px;background:var(--white);border:1px solid var(--cream-dark);
+    border-radius:20px;padding:16px 20px;box-shadow:var(--shadow);
+  }
+  .badge .icon{
+    width:44px;height:44px;border-radius:50%;background:var(--sage);color:var(--white);display:flex;
+    align-items:center;justify-content:center;flex-shrink:0;
+  }
+  .badge .icon.gold{background:var(--gold);}
+  .badge strong{display:block;font-size:14px;letter-spacing:.5px;}
+  .badge span{font-size:13px;color:#666;}
+
+  /* MODALIDADES */
+  .modalidades{background:var(--cream-dark);}
+  .mod-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:28px;margin-top:48px;}
+  .mod-card{
+    background:var(--white);border-radius:26px;padding:36px;text-align:center;box-shadow:var(--shadow);
+    border:1px solid #E4DAC1;
+  }
+  .mod-card .emoji{font-size:38px;margin-bottom:14px;display:block;}
+  .mod-card h3{font-size:24px;margin-bottom:10px;}
+  .mod-card p{color:#666;font-size:14px;}
+
+  /* PRICING */
+  .price-card{
+    max-width:420px;margin:48px auto 0;background:var(--white);border-radius:28px;padding:44px;text-align:center;
+    box-shadow:var(--shadow);border:2px solid var(--gold);
+  }
+  .price-card .amount{font-family:'Quicksand',sans-serif;font-weight:700;font-size:48px;color:var(--gold-dark);margin:14px 0;}
+  .price-card .amount span{font-size:16px;color:#888;font-family:'Montserrat',sans-serif;font-weight:500;}
+  .price-card ul{list-style:none;margin:20px 0;text-align:left;display:inline-block;}
+  .price-card li{padding:6px 0;font-size:14px;color:#555;}
+  .price-card li::before{content:"✓ ";color:var(--sage-dark);font-weight:700;}
+  .price-payment{margin-top:22px;padding-top:20px;border-top:1px solid var(--cream-dark);}
+  .price-payment .label{font-size:11px;color:#999;text-transform:uppercase;letter-spacing:1px;margin-bottom:10px;}
+  .webpay-badge{
+    display:inline-flex;align-items:center;background:#FFFFFF;border-radius:8px;padding:8px 14px;
+    box-shadow:var(--shadow);border:1px solid var(--cream-dark);
+  }
+  .webpay-badge img{height:44px;width:auto;display:block;}
+
+  /* AGENDA */
+  .agenda-grid{display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:start;margin-top:48px;}
+  .step-title{display:flex;align-items:center;gap:10px;font-size:20px;margin-bottom:20px;color:var(--sage-dark);}
+  .step-num{
+    width:30px;height:30px;border-radius:50%;background:var(--gold);color:var(--white);display:flex;
+    align-items:center;justify-content:center;font-size:14px;font-weight:700;flex-shrink:0;
+  }
+  .calendar-card{background:var(--white);border-radius:26px;overflow:hidden;box-shadow:var(--shadow);border:1px solid var(--cream-dark);}
+  .cal-header{
+    display:flex;align-items:center;justify-content:space-between;padding:16px 20px;
+    background:linear-gradient(90deg,var(--cream-dark),var(--cream));border-bottom:1px solid var(--cream-dark);
+  }
+  .cal-header button{background:none;border:none;font-size:18px;cursor:pointer;color:var(--gold-dark);padding:6px 10px;border-radius:10px;}
+  .cal-header button:hover{background:var(--cream-dark);}
+  .cal-header .month{font-weight:600;color:var(--charcoal);font-size:15px;}
+  .cal-days{display:grid;grid-template-columns:repeat(7,1fr);text-align:center;font-size:11px;color:var(--sage-dark);font-weight:700;padding:10px 6px 0;}
+  .cal-grid{display:grid;grid-template-columns:repeat(7,1fr);gap:4px;padding:10px;}
+  .cal-day{
+    aspect-ratio:1;display:flex;align-items:center;justify-content:center;border-radius:12px;font-size:13px;
+    cursor:default;color:#bbb;position:relative;
+  }
+  .cal-day.available{cursor:pointer;color:var(--charcoal);}
+  .cal-day.available:hover{background:var(--cream-dark);}
+  .cal-day.available::after{content:"";position:absolute;bottom:5px;width:4px;height:4px;border-radius:50%;background:var(--gold);}
+  .cal-day.selected{background:linear-gradient(135deg,var(--gold),var(--gold-dark));color:var(--white);font-weight:700;}
+  .cal-day.selected::after{display:none;}
+  .cal-legend{display:flex;gap:16px;padding:0 16px 16px;font-size:12px;color:#777;}
+  .cal-legend span{display:flex;align-items:center;gap:6px;}
+  .dot{width:8px;height:8px;border-radius:50%;background:var(--gold);}
+  .sq{width:14px;height:14px;border-radius:4px;background:linear-gradient(135deg,var(--gold),var(--gold-dark));}
+
+  .slots-card{background:var(--white);border-radius:26px;padding:20px;margin-top:16px;box-shadow:var(--shadow);border:1px solid var(--cream-dark);}
+  .slots-title{font-size:14px;font-weight:700;color:var(--sage-dark);margin-bottom:14px;display:flex;align-items:center;gap:8px;}
+  .slots-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;}
+  .slot-btn{
+    padding:10px 6px;border-radius:16px;border:1px solid var(--cream-dark);background:var(--white);font-size:13px;
+    font-weight:600;cursor:pointer;color:#555;
+  }
+  .slot-btn:hover{border-color:var(--gold);background:var(--cream);}
+  .slot-btn.selected{background:linear-gradient(135deg,var(--gold),var(--gold-dark));color:var(--white);border-color:transparent;}
+  .slot-empty{color:#aaa;font-size:13px;text-align:center;padding:20px 0;}
+
+  .form-card{background:var(--white);border-radius:26px;padding:30px;box-shadow:var(--shadow);border:1px solid var(--cream-dark);}
+  .form-card.disabled{opacity:.5;pointer-events:none;}
+  .form-hint{background:var(--cream);border:1px solid var(--cream-dark);border-radius:16px;padding:12px 16px;font-size:13px;color:#777;font-style:italic;margin-bottom:18px;}
+  .form-row{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-bottom:14px;}
+  .field label{display:block;font-size:12px;font-weight:700;color:#666;margin-bottom:6px;}
+  .field input, .field textarea{
+    width:100%;padding:11px 14px;border-radius:14px;border:1px solid #ddd;font-family:'Montserrat',sans-serif;
+    font-size:14px;outline:none;
+  }
+  .field input:focus, .field textarea:focus{border-color:var(--gold);}
+  .field.error input, .field.error textarea{border-color:#d9534f;}
+  .error-msg{color:#d9534f;font-size:11px;margin-top:4px;}
+  .mod-toggle{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:14px;}
+  .mod-toggle button{
+    padding:12px;border-radius:16px;border:2px solid #e6e6e6;background:var(--white);font-weight:700;font-size:14px;
+    cursor:pointer;color:#777;
+  }
+  .mod-toggle button.active{border-color:var(--gold);background:var(--cream);color:var(--gold-dark);}
+  .form-actions{display:flex;gap:12px;flex-wrap:wrap;margin-top:6px;}
+  .form-actions button{flex:1;min-width:180px;padding:15px;border-radius:40px;font-weight:700;font-size:14px;border:none;cursor:pointer;}
+  .btn-confirm{background:linear-gradient(135deg,var(--gold),var(--gold-dark));color:var(--white);}
+  .btn-wsp{background:#25D366;color:var(--white);}
+  .footnote{text-align:center;font-size:11px;color:#999;margin-top:14px;}
+  .confirm-box{text-align:center;padding:40px 10px;}
+  .confirm-box .check{
+    width:70px;height:70px;border-radius:50%;background:#e8f3e3;display:flex;align-items:center;justify-content:center;
+    margin:0 auto 18px;font-size:34px;color:var(--sage-dark);
+  }
+  .confirm-box h3{font-size:24px;margin-bottom:8px;}
+  .confirm-box p{color:#777;font-size:14px;max-width:340px;margin:0 auto 16px;}
+  .confirm-pill{display:inline-block;background:var(--cream);border:1px solid var(--cream-dark);border-radius:16px;padding:10px 18px;font-size:13px;color:var(--sage-dark);font-weight:600;margin-bottom:20px;}
+
+  /* LOCATION */
+  .loc-grid{display:grid;grid-template-columns:1fr 1fr;gap:40px;margin-top:48px;align-items:center;}
+  .loc-card{background:var(--white);border-radius:26px;padding:32px;box-shadow:var(--shadow);border:1px solid var(--cream-dark);}
+  .loc-row{display:flex;gap:14px;margin-bottom:18px;align-items:flex-start;}
+  .loc-row .icon{width:38px;height:38px;border-radius:50%;background:var(--sage);color:var(--white);display:flex;align-items:center;justify-content:center;flex-shrink:0;}
+  .loc-map{height:340px;border-radius:26px;overflow:hidden;box-shadow:var(--shadow);border:1px solid var(--cream-dark);}
+  .loc-map iframe{width:100%;height:100%;border:0;display:block;}
+
+  /* FOOTER */
+  footer{background:var(--charcoal);color:#eee;padding:60px 0 24px;}
+  .footer-grid{display:grid;grid-template-columns:1.4fr 1fr 1fr;gap:40px;margin-bottom:36px;}
+  .footer-grid h4{color:var(--gold);font-size:16px;margin-bottom:14px;font-family:'Montserrat',sans-serif;font-weight:700;}
+  .footer-grid p, .footer-grid a{color:#bbb;font-size:14px;display:block;margin-bottom:8px;}
+  .footer-tagline{font-family:'Cormorant Garamond',serif;font-style:italic;color:var(--gold);font-size:19px;margin-top:6px;}
+  .footer-bottom{border-top:1px solid #4a4a47;padding-top:20px;text-align:center;font-size:12px;color:#888;}
+
+  @media (max-width:900px){
+    .hero-grid,.profile-grid,.agenda-grid,.loc-grid{grid-template-columns:1fr;}
+    .mod-grid{grid-template-columns:1fr;}
+    .footer-grid{grid-template-columns:1fr;}
+    .hero h1{font-size:38px;}
+    .form-row{grid-template-columns:1fr;}
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="nav-wrap">
+    <a href="#" class="logo">
+      <img src="assets/centro-auria-logo.png" alt="Centro Auria" class="logo-img" />
+    </a>
+    <button class="menu-toggle" onclick="document.querySelector('nav').classList.toggle('open')">☰</button>
+    <nav>
+      <ul>
+        <li><a href="#inicio">Inicio</a></li>
+        <li><a href="#sobre-mi">Sobre mí</a></li>
+        <li><a href="#modalidades">Modalidades</a></li>
+        <li><a href="#precios">Precios</a></li>
+        <li><a href="#ubicacion">Ubicación</a></li>
+        <li><a href="#agenda" class="btn-nav">Agenda tu hora</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<section class="hero" id="inicio">
+  <div class="container hero-grid">
+    <div>
+      <div class="hero-eyebrow">Bienestar Emocional Integral</div>
+      <h1>Acompañamos el <span>desarrollo emocional</span> de niños, niñas y adolescentes</h1>
+      <p>En Centro Auria ofrecemos un espacio cálido y profesional para el bienestar psicológico infanto-juvenil, con atención presencial y online.</p>
+      <div class="hero-actions">
+        <a href="#agenda" class="btn-primary">📅 Agenda tu hora</a>
+        <a href="#sobre-mi" class="btn-secondary">Conoce más</a>
+      </div>
+    </div>
+    <div class="hero-badge-card">
+      <div class="ring"><img src="assets/centro-auria-camila.jpg" alt="Camila Peñaranda" /></div>
+      <h3>Camila Peñaranda</h3>
+      <p class="role">Psicóloga Infanto Juvenil</p>
+      <p style="font-size:13px;color:#777;">"Cuidar su bienestar emocional es invertir en su futuro"</p>
+    </div>
+  </div>
+</section>
+
+<section id="sobre-mi">
+  <div class="container profile-grid">
+    <div class="profile-photo">
+      <img src="assets/centro-auria-camila.jpg" alt="Camila Peñaranda Sepúlveda" />
+    </div>
+    <div>
+      <div class="section-eyebrow">Sobre mí</div>
+      <h2 class="section-title">Camila Peñaranda <em>Sepúlveda</em></h2>
+      <p class="quote">"Acompaño el desarrollo emocional de niños, niñas y adolescentes."</p>
+      <div class="badge-row">
+        <div class="badge">
+          <div class="icon gold">🏅</div>
+          <div><strong>10 años de experiencia</strong><span>Atención clínica infanto-juvenil</span></div>
+        </div>
+        <div class="badge">
+          <div class="icon">🧩</div>
+          <div><strong>Diplomado en TEA</strong><span>Especialización en Trastorno del Espectro Autista</span></div>
+        </div>
+        <div class="badge">
+          <div class="icon gold">🧠</div>
+          <div><strong>Terapia Cognitivo Conductual</strong><span>Enfoque basado en evidencia</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="modalidades" id="modalidades">
+  <div class="container" style="text-align:center;">
+    <div class="section-eyebrow">Cómo trabajamos</div>
+    <h2 class="section-title">Modalidades de <em>atención</em></h2>
+    <div class="section-underline" style="margin-left:auto;margin-right:auto;"></div>
+    <div class="mod-grid">
+      <div class="mod-card">
+        <span class="emoji">🏥</span>
+        <h3>Presencial</h3>
+        <p>Atención en nuestro espacio en Manquehue Sur 520, Of 325, Las Condes.</p>
+      </div>
+      <div class="mod-card">
+        <span class="emoji">💻</span>
+        <h3>Online</h3>
+        <p>Sesiones por videollamada, misma calidez y confidencialidad desde donde estés.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="precios">
+  <div class="container" style="text-align:center;">
+    <h2 class="section-title">Valor de la <em>sesión</em></h2>
+    <div class="section-underline" style="margin-left:auto;margin-right:auto;"></div>
+    <div class="price-card">
+      <p style="color:#999;font-size:13px;letter-spacing:1px;text-transform:uppercase;">Sesión individual</p>
+      <div class="amount">$35.000 <span>CLP</span></div>
+      <ul>
+        <li>Sesión de 50 minutos</li>
+        <li>Modalidad presencial u online</li>
+        <li>Seguimiento y orientación a la familia</li>
+      </ul>
+      <div class="price-payment">
+        <p class="label">Medios de pago</p>
+        <div style="display:flex;align-items:center;justify-content:center;gap:14px;flex-wrap:wrap;">
+          <div class="webpay-badge">
+            <img src="assets/centro-auria-webpay.png" alt="Webpay" />
+          </div>
+          <span style="color:#999;font-size:13px;">o Transferencia bancaria</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="agenda" style="background:var(--cream-dark);">
+  <div class="container">
+    <div style="text-align:center;">
+      <div class="section-eyebrow">Reserva tu sesión</div>
+      <h2 class="section-title">Agenda tu <em>hora</em></h2>
+      <p style="color:#777;margin-top:10px;">Selecciona el día y la hora que más te acomode. Una vez enviada la solicitud, nos pondremos en contacto para confirmar.</p>
+      <div class="section-underline" style="margin-left:auto;margin-right:auto;"></div>
+    </div>
+
+    <div class="agenda-grid">
+      <div>
+        <div class="step-title"><span class="step-num">1</span> Selecciona fecha y hora</div>
+        <div class="calendar-card">
+          <div class="cal-header">
+            <button onclick="changeMonth(-1)">‹</button>
+            <span class="month" id="cal-month-label"></span>
+            <button onclick="changeMonth(1)">›</button>
+          </div>
+          <div class="cal-days">
+            <div>Dom</div><div>Lun</div><div>Mar</div><div>Mié</div><div>Jue</div><div>Vie</div><div>Sáb</div>
+          </div>
+          <div class="cal-grid" id="cal-grid"></div>
+          <div class="cal-legend">
+            <span><span class="dot"></span> Disponible</span>
+            <span><span class="sq"></span> Seleccionado</span>
+          </div>
+        </div>
+        <div class="slots-card" id="slots-card" style="display:none;">
+          <div class="slots-title" id="slots-title">🕐 Horarios disponibles</div>
+          <div class="slots-grid" id="slots-grid"></div>
+        </div>
+      </div>
+
+      <div>
+        <div class="step-title"><span class="step-num">2</span> Completa tus datos</div>
+        <div class="form-card" id="form-card">
+          <div class="form-hint" id="form-hint">Selecciona primero una fecha y un horario disponible para habilitar el formulario.</div>
+          <form id="booking-form" onsubmit="return handleSubmit(event)">
+            <div class="form-row">
+              <div class="field" id="field-paciente">
+                <label>Nombre del paciente *</label>
+                <input type="text" id="input-paciente" placeholder="Ej: Martín González" />
+                <div class="error-msg" id="err-paciente"></div>
+              </div>
+              <div class="field" id="field-apoderado">
+                <label>Nombre del apoderado *</label>
+                <input type="text" id="input-apoderado" placeholder="Ej: Ana González" />
+                <div class="error-msg" id="err-apoderado"></div>
+              </div>
+            </div>
+            <div class="form-row">
+              <div class="field" id="field-telefono">
+                <label>Teléfono *</label>
+                <input type="tel" id="input-telefono" placeholder="+56 9 XXXX XXXX" />
+                <div class="error-msg" id="err-telefono"></div>
+              </div>
+              <div class="field" id="field-email">
+                <label>Email *</label>
+                <input type="email" id="input-email" placeholder="tu@email.com" />
+                <div class="error-msg" id="err-email"></div>
+              </div>
+            </div>
+            <label style="display:block;font-size:12px;font-weight:700;color:#666;margin-bottom:6px;">Modalidad de atención *</label>
+            <div class="mod-toggle">
+              <button type="button" class="active" id="mod-presencial" onclick="setModalidad('Presencial')">🏥 Presencial</button>
+              <button type="button" id="mod-online" onclick="setModalidad('Online')">💻 Online</button>
+            </div>
+            <div class="field" id="field-motivo" style="margin-bottom:16px;">
+              <label>Motivo de consulta *</label>
+              <textarea id="input-motivo" rows="3" placeholder="Describe brevemente el motivo de la consulta"></textarea>
+              <div class="error-msg" id="err-motivo"></div>
+            </div>
+            <div class="form-actions">
+              <button type="submit" class="btn-confirm">📩 Confirmar reserva</button>
+              <button type="button" class="btn-wsp" onclick="handleWhatsapp()">💬 Solicitar por WhatsApp</button>
+            </div>
+          </form>
+          <div id="confirm-box" class="confirm-box" style="display:none;"></div>
+          <p class="footnote">Tu información es confidencial y está protegida. Te confirmaremos la hora en menos de 24 horas.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="ubicacion">
+  <div class="container">
+    <div style="text-align:center;">
+      <div class="section-eyebrow">Dónde estamos</div>
+      <h2 class="section-title">Ubicación y <em>contacto</em></h2>
+      <div class="section-underline" style="margin-left:auto;margin-right:auto;"></div>
+    </div>
+    <div class="loc-grid">
+      <div class="loc-card">
+        <div class="loc-row"><div class="icon">📍</div><div><strong>Dirección</strong><p style="color:#666;font-size:14px;">Manquehue Sur 520, Of 325, Las Condes, Santiago</p></div></div>
+        <div class="loc-row"><div class="icon">📞</div><div><strong>Teléfono / WhatsApp</strong><p style="color:#666;font-size:14px;">+569 8773 2740</p></div></div>
+        <div class="loc-row"><div class="icon">📧</div><div><strong>Email</strong><p style="color:#666;font-size:14px;">contacto@centroauria.cl</p></div></div>
+      </div>
+      <div class="loc-map">
+        <iframe
+          src="https://www.google.com/maps?q=Manquehue+Sur+520,+Las+Condes,+Santiago,+Chile&output=embed"
+          allowfullscreen loading="lazy" referrerpolicy="no-referrer-when-downgrade"
+          title="Ubicación Centro Auria - Manquehue Sur 520, Las Condes">
+        </iframe>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="container footer-grid">
+    <div>
+      <img src="assets/centro-auria-logo.png" alt="Centro Auria" class="footer-logo-img" />
+      <p>Bienestar emocional integral para niños, niñas y adolescentes.</p>
+      <p class="footer-tagline">"Cuidar su bienestar emocional es invertir en su futuro"</p>
+    </div>
+    <div>
+      <h4>Navegación</h4>
+      <a href="#sobre-mi">Sobre mí</a>
+      <a href="#modalidades">Modalidades</a>
+      <a href="#precios">Precios</a>
+      <a href="#agenda">Agenda tu hora</a>
+    </div>
+    <div>
+      <h4>Contacto</h4>
+      <p>Manquehue Sur 520, Of 325, Las Condes</p>
+      <p>+569 8773 2740</p>
+      <p>contacto@centroauria.cl</p>
+    </div>
+  </div>
+  <div class="footer-bottom">Centro Auria Copyright - 2026 Todos los derechos reservados</div>
+</footer>
+
+<script>
+  const MONTHS_ES = ['Enero','Febrero','Marzo','Abril','Mayo','Junio','Julio','Agosto','Septiembre','Octubre','Noviembre','Diciembre'];
+  const STANDARD_SLOTS = ['09:00','10:00','11:00','14:00','15:00','16:00','17:00'];
+  const WHATSAPP_NUMBER = '56987732740';
+
+  function pad(n){return n<10?'0'+n:''+n;}
+  function toDateStr(y,m,d){return `${y}-${pad(m+1)}-${pad(d)}`;}
+
+  // Generate mock availability for the next 60 days (weekdays only)
+  const availableDates = {};
+  (function generate(){
+    const today = new Date(); today.setHours(0,0,0,0);
+    for(let i=1;i<=60;i++){
+      const d = new Date(today); d.setDate(today.getDate()+i);
+      const dow = d.getDay();
+      if(dow>=1 && dow<=5){
+        const key = toDateStr(d.getFullYear(), d.getMonth(), d.getDate());
+        const slots = STANDARD_SLOTS.filter(()=>Math.random()>0.35);
+        if(slots.length) availableDates[key]=slots;
+      }
+    }
+  })();
+
+  let currentMonth = new Date(); currentMonth.setDate(1);
+  let selectedDate = null, selectedTime = null, modalidad = 'Presencial';
+  const bookedSlots = {};
+
+  function changeMonth(delta){
+    currentMonth = new Date(currentMonth.getFullYear(), currentMonth.getMonth()+delta, 1);
+    renderCalendar();
+  }
+
+  function renderCalendar(){
+    document.getElementById('cal-month-label').textContent = `${MONTHS_ES[currentMonth.getMonth()]} ${currentMonth.getFullYear()}`;
+    const grid = document.getElementById('cal-grid');
+    grid.innerHTML='';
+    const firstDay = new Date(currentMonth.getFullYear(), currentMonth.getMonth(),1).getDay();
+    const daysInMonth = new Date(currentMonth.getFullYear(), currentMonth.getMonth()+1,0).getDate();
+    const today = new Date(); today.setHours(0,0,0,0);
+
+    for(let i=0;i<firstDay;i++){ grid.appendChild(document.createElement('div')); }
+    for(let day=1; day<=daysInMonth; day++){
+      const dateStr = toDateStr(currentMonth.getFullYear(), currentMonth.getMonth(), day);
+      const d = new Date(currentMonth.getFullYear(), currentMonth.getMonth(), day); d.setHours(0,0,0,0);
+      const available = d>today && availableDates[dateStr] && availableDates[dateStr].length>0;
+      const cell = document.createElement('div');
+      cell.className = 'cal-day' + (available?' available':'') + (selectedDate===dateStr?' selected':'');
+      cell.textContent = day;
+      if(available){
+        cell.onclick = ()=>{ selectedDate=dateStr; selectedTime=null; renderCalendar(); renderSlots(); updateFormState(); };
+      }
+      grid.appendChild(cell);
+    }
+  }
+
+  function renderSlots(){
+    const card = document.getElementById('slots-card');
+    if(!selectedDate){ card.style.display='none'; return; }
+    card.style.display='block';
+    const [y,m,dd] = selectedDate.split('-');
+    document.getElementById('slots-title').textContent = `🕐 Horarios disponibles · ${dd}/${m}`;
+    const slotsGrid = document.getElementById('slots-grid');
+    slotsGrid.innerHTML='';
+    const times = availableDates[selectedDate]||[];
+    if(times.length===0){
+      slotsGrid.innerHTML = '<div class="slot-empty">No hay horarios disponibles para este día</div>';
+      return;
+    }
+    times.forEach(time=>{
+      const key = `${selectedDate}_${time}`;
+      const booked = !!bookedSlots[key];
+      const btn = document.createElement('button');
+      btn.type='button';
+      btn.className='slot-btn'+(selectedTime===time?' selected':'');
+      btn.textContent = time;
+      if(booked){ btn.disabled=true; btn.style.textDecoration='line-through'; btn.style.color='#ccc'; }
+      else { btn.onclick = ()=>{ selectedTime=time; renderSlots(); updateFormState(); }; }
+      slotsGrid.appendChild(btn);
+    });
+  }
+
+  function updateFormState(){
+    const hint = document.getElementById('form-hint');
+    const card = document.getElementById('form-card');
+    if(selectedDate && selectedTime){
+      hint.textContent = '¡Excelente! Ahora completa los datos para finalizar tu solicitud de reserva.';
+      card.classList.remove('disabled-inputs');
+      document.getElementById('booking-form').style.opacity='1';
+      document.getElementById('booking-form').style.pointerEvents='auto';
+    } else {
+      hint.textContent = 'Selecciona primero una fecha y un horario disponible para habilitar el formulario.';
+      document.getElementById('booking-form').style.opacity='.5';
+      document.getElementById('booking-form').style.pointerEvents='none';
+    }
+  }
+
+  function setModalidad(m){
+    modalidad = m;
+    document.getElementById('mod-presencial').classList.toggle('active', m==='Presencial');
+    document.getElementById('mod-online').classList.toggle('active', m==='Online');
+  }
+
+  function clearErrors(){
+    ['paciente','apoderado','telefono','email','motivo'].forEach(f=>{
+      document.getElementById('err-'+f).textContent='';
+      document.getElementById('field-'+f).classList.remove('error');
+    });
+  }
+
+  function validate(){
+    clearErrors();
+    let ok = true;
+    const vals = {
+      paciente: document.getElementById('input-paciente').value.trim(),
+      apoderado: document.getElementById('input-apoderado').value.trim(),
+      telefono: document.getElementById('input-telefono').value.trim(),
+      email: document.getElementById('input-email').value.trim(),
+      motivo: document.getElementById('input-motivo').value.trim(),
+    };
+    if(!vals.paciente){ setErr('paciente','Ingresa el nombre del paciente'); ok=false; }
+    if(!vals.apoderado){ setErr('apoderado','Ingresa el nombre del apoderado'); ok=false; }
+    if(!vals.telefono || vals.telefono.length<8){ setErr('telefono','Ingresa un teléfono válido'); ok=false; }
+    if(!vals.email || !vals.email.includes('@')){ setErr('email','Ingresa un email válido'); ok=false; }
+    if(!vals.motivo){ setErr('motivo','Describe brevemente el motivo de consulta'); ok=false; }
+    if(!selectedDate || !selectedTime){ ok=false; alert('Selecciona una fecha y un horario disponible en el calendario.'); }
+    return ok? vals : null;
+  }
+  function setErr(field,msg){
+    document.getElementById('err-'+field).textContent=msg;
+    document.getElementById('field-'+field).classList.add('error');
+  }
+
+  function handleSubmit(e){
+    e.preventDefault();
+    const vals = validate();
+    if(!vals) return false;
+    const key = `${selectedDate}_${selectedTime}`;
+    bookedSlots[key]=true;
+    document.getElementById('booking-form').style.display='none';
+    const box = document.getElementById('confirm-box');
+    const [y,m,dd] = selectedDate.split('-');
+    box.innerHTML = `
+      <div class="check">✓</div>
+      <h3>¡Solicitud enviada!</h3>
+      <p>Tu solicitud de hora fue recibida. Te confirmaremos por teléfono o email en menos de 24 horas.</p>
+      <div class="confirm-pill">📅 ${dd}/${m} · ⏰ ${selectedTime} · ${modalidad==='Presencial'?'🏥':'💻'} ${modalidad}</div>
+      <div><button class="btn-secondary" onclick="resetForm()">Hacer otra reservación</button></div>
+    `;
+    box.style.display='block';
+    return false;
+  }
+
+  function resetForm(){
+    document.getElementById('booking-form').reset();
+    document.getElementById('booking-form').style.display='block';
+    document.getElementById('confirm-box').style.display='none';
+    selectedDate=null; selectedTime=null;
+    renderCalendar(); renderSlots(); updateFormState();
+  }
+
+  function handleWhatsapp(){
+    const vals = validate();
+    if(!vals) return;
+    const [y,m,dd] = selectedDate.split('-');
+    const dateFormatted = `${dd}/${m}/${y}`;
+    const message = encodeURIComponent(
+      `Hola Camila 👋, me gustaría agendar una hora psicológica en Centro Auria.\n\n`+
+      `👦 Paciente: ${vals.paciente}\n`+
+      `👤 Apoderado: ${vals.apoderado}\n`+
+      `📅 Fecha: ${dateFormatted}\n`+
+      `🕐 Hora: ${selectedTime}\n`+
+      `💻 Modalidad: ${modalidad}\n`+
+      `📝 Motivo: ${vals.motivo}\n`+
+      `📞 Teléfono: ${vals.telefono}\n`+
+      `📧 Email: ${vals.email}\n\n`+
+      `Quedo atento/a a su confirmación. ¡Muchas gracias!`
+    );
+    window.open(`https://wa.me/${WHATSAPP_NUMBER}?text=${message}`, '_blank');
+  }
+
+  renderCalendar();
+  renderSlots();
+  updateFormState();
+</script>
+</body>
+</html>
