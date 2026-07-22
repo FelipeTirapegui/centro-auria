@@ -247,7 +247,7 @@
 <header>
   <div class="nav-wrap">
     <a href="#" class="logo">
-      <img src="assets/centro-auria-logo.png" alt="Centro Auria" class="logo-img" />
+      <img src="centro-auria-logo.png" alt="Centro Auria" class="logo-img" />
     </a>
     <button class="menu-toggle" onclick="document.querySelector('nav').classList.toggle('open')">☰</button>
     <nav>
@@ -275,7 +275,7 @@
       </div>
     </div>
     <div class="hero-badge-card">
-      <div class="ring"><img src="assets/centro-auria-camila.jpg" alt="Camila Peñaranda" /></div>
+      <div class="ring"><img src="centro-auria-camila.jpg" alt="Camila Peñaranda" /></div>
       <h3>Camila Peñaranda</h3>
       <p class="role">Psicóloga Infanto Juvenil</p>
       <p style="font-size:13px;color:#777;">"Cuidar su bienestar emocional es invertir en su futuro"</p>
@@ -286,7 +286,7 @@
 <section id="sobre-mi">
   <div class="container profile-grid">
     <div class="profile-photo">
-      <img src="assets/centro-auria-camila.jpg" alt="Camila Peñaranda Sepúlveda" />
+      <img src="centro-auria-camila.jpg" alt="Camila Peñaranda Sepúlveda" />
     </div>
     <div>
       <div class="section-eyebrow">Sobre mí</div>
@@ -317,7 +317,7 @@
     <div class="section-underline" style="margin-left:auto;margin-right:auto;"></div>
     <div class="mod-grid">
       <div class="mod-card">
-        <span class="emoji">🏥</span>
+        <span class="emoji">🏠</span>
         <h3>Presencial</h3>
         <p>Atención en nuestro espacio en Manquehue Sur 520, Of 325, Las Condes.</p>
       </div>
@@ -346,7 +346,7 @@
         <p class="label">Medios de pago</p>
         <div style="display:flex;align-items:center;justify-content:center;gap:14px;flex-wrap:wrap;">
           <div class="webpay-badge">
-            <img src="assets/centro-auria-webpay.png" alt="Webpay" />
+            <img src="centro-auria-webpay.png" alt="Webpay" />
           </div>
           <span style="color:#999;font-size:13px;">o Transferencia bancaria</span>
         </div>
@@ -419,7 +419,7 @@
             </div>
             <label style="display:block;font-size:12px;font-weight:700;color:#666;margin-bottom:6px;">Modalidad de atención *</label>
             <div class="mod-toggle">
-              <button type="button" class="active" id="mod-presencial" onclick="setModalidad('Presencial')">🏥 Presencial</button>
+              <button type="button" class="active" id="mod-presencial" onclick="setModalidad('Presencial')">🏠 Presencial</button>
               <button type="button" id="mod-online" onclick="setModalidad('Online')">💻 Online</button>
             </div>
             <div class="field" id="field-motivo" style="margin-bottom:16px;">
@@ -467,7 +467,7 @@
 <footer>
   <div class="container footer-grid">
     <div>
-      <img src="assets/centro-auria-logo.png" alt="Centro Auria" class="footer-logo-img" />
+      <img src="centro-auria-logo.png" alt="Centro Auria" class="footer-logo-img" />
       <p>Bienestar emocional integral para niños, niñas y adolescentes.</p>
       <p class="footer-tagline">"Cuidar su bienestar emocional es invertir en su futuro"</p>
     </div>
@@ -633,7 +633,7 @@
       <div class="check">✓</div>
       <h3>¡Solicitud enviada!</h3>
       <p>Tu solicitud de hora fue recibida. Te confirmaremos por teléfono o email en menos de 24 horas.</p>
-      <div class="confirm-pill">📅 ${dd}/${m} · ⏰ ${selectedTime} · ${modalidad==='Presencial'?'🏥':'💻'} ${modalidad}</div>
+      <div class="confirm-pill">📅 ${dd}/${m} · ⏰ ${selectedTime} · ${modalidad==='Presencial'?'🏠':'💻'} ${modalidad}</div>
       <div><button class="btn-secondary" onclick="resetForm()">Hacer otra reservación</button></div>
     `;
     box.style.display='block';
